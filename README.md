@@ -1,73 +1,176 @@
-# React + TypeScript + Vite
+# Booking System – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend application for the **Booking System**, built with **React** + **TypeScript**, communicating with a Django REST API backend. 
 
-Currently, two official plugins are available:
+It provides a complete user interface for **users** and **administrators**, with role-based navigation and polished UX.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project focuses on:
+- clean UI & layout,
+- real-world booking flows,
+- role-based access,
+- and secure session handling.
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Authentication
+- User login with username & password
+- User registration (sign up) with:
+- - Username
+- - First name
+- - Last name
+- - Email
+- JWT-based authentication (handled by backend)
+- Automatic redirect to `/login` on logout or expired session
+- Show / hide password functionality
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Dashboard
+- Landing page after login
+- Action cards:
+- - **My Bookings**
+- - **Create Booking**
+- - **Admin Bookings** (admins only)
+- Role-based visibility of actions
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Create Booking
+- Select service
+- Select date via calendar
+- **Dynamic loading of available time slots**
+- Grid-based slot layout (09:00–17:00)
+- Automatic exclusion of:
+- - pastime slots
+- - already booked slots
+- Slot selection preview
+- Success & error feedback messages
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### My Bookings
+- View personal bookings
+- Booking details:
+- - Service
+- - Date
+- - Time
+- - Status
+- Status badges
+- - 🟡 PENDING
+- - 🟢 CONFIRMED
+- - ⚪ CANCELLED
+- Ability to cancel future bookings only
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Admin Bookings (Admin only)
+- View **all bookings**
+- Table includes:
+- - Username
+- - Service
+- - Date
+- - Time
+- - Status
+- Actions:
+- - Confirm booking
+- - Cancel booking
+- Advanced filters:
+- - Service
+- - Status
+- - Date
+- - Username
+- Responsive layout
+- Polished admin UI with sticky table header
+
+---
+
+## 🎨 UI / UX Highlights
+- Card-based layouts
+- Icon-enhanced actions
+- Auto-dismiss success & error messages
+- Disabled states for unavailable actions
+- Responsive design
+- Consistent date format `dd-MM-yyyy`
+
+---
+
+## Tech Stack
+- React
+- TypeScript
+- Vite
+- Axios
+- React Router
+- React Datepicker
+- JWT (via backend)
+- CSS-in-JS (inline styling)
+
+---
+
+## 📂 Project Structure
+
+1. [ ] src/
+2. [ ] ├── api/
+3. [ ] │   └── axios.ts
+4. [ ] ├── auth/
+5. [ ] │   └── AuthContext.tsx
+6. [ ] ├── components/
+7. [ ] │   ├── PrivateLayout.tsx
+8. [ ] │   ├── PageHeader.tsx
+9. [ ] │   └── ...
+10. [ ] ├── pages/
+11. [ ] │   ├── Login.tsx
+12. [ ] │   ├── Register.tsx
+13. [ ] │   ├── Dashboard.tsx
+14. [ ] │   ├── CreateBooking.tsx
+15. [ ] │   ├── MyBookings.tsx
+16. [ ] │   └── AdminBookings.tsx
+17. [ ] ├── routes/
+18. [ ] │   ├── ProtectedRoute.tsx
+19. [ ] │   └── AdminRoute.tsx
+20. [ ] └── main.tsx
+---
+
+## 🔐 Security & Access Control
+- Protected routes for authenticated users
+- Admin-only routes guarded on the frontend
+- Automatic redirect to `/login` when:
+- - user logs out
+- - session expires
+- - backend returns HTTP 401
+
+---
+
+## ⚙️ Setup & Run
+1. Clone the repository
+2. Install dependencies:
+
+       npm install
+3. Start development server:
+
+       npm run dev
+4. Open in browser:
+
+http://localhost:5173
+
+⚠️️ The backend API must be running and properly configured (CORS, base URL).
+
+---
+
+## 🔗 Backend
+This frontend connects to the **Booking System API** backend:
+- Django REST Framework
+- JWT authentication
+- Swagger/OpenAPI documentation
+
+---
+
+## 🎓 Author
+This frontend was developed as part of a complete **full-stack booking system**, demonstrating:
+- real-world React architecture
+- authentication & role-based routing
+- clean UI/UX practices
+- production-ready frontend logic
+
+---
+
+
