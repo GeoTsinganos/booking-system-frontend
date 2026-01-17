@@ -18,7 +18,7 @@ Frontend εφαρμογή για το **Booking System**, υλοποιημένη
 - - Last name
 - - Email
 - JWT authentication (μέσω backend)
-- Αυτόματο redirect στο login σε logout ή expired session
+- Αυτόματο redirect στο `/login` σε logout ή expired session
 - Προβολή / απόκρυψη password κατά την πληκτρολόγηση
 
 ---
@@ -62,7 +62,7 @@ Frontend εφαρμογή για το **Booking System**, υλοποιημένη
 ---
 
 ### Admin Bookings (μόνο admin)
-- Προβολή όλων των κρατήσεων
+- Προβολή **όλων των κρατήσεων**
 - Πίνακας με:
 - - Username
 - - Υπηρεσία
@@ -106,26 +106,26 @@ Frontend εφαρμογή για το **Booking System**, υλοποιημένη
 
 ## 📂 Δομή Project
 
-src/
-├── api/
-│   └── axios.ts
-├── auth/
-│   └── AuthContext.tsx
-├── components/
-│   ├── PrivateLayout.tsx
-│   ├── PageHeader.tsx
-│   └── ...
-├── pages/
-│   ├── Login.tsx
-│   ├── Register.tsx
-│   ├── Dashboard.tsx
-│   ├── CreateBooking.tsx
-│   ├── MyBookings.tsx
-│   └── AdminBookings.tsx
-├── routes/
-│   ├── ProtectedRoute.tsx
-│   └── AdminRoute.tsx
-└── main.tsx
+1. [ ] src/
+2. [ ] ├── api/
+3. [ ] │   └── axios.ts
+4. [ ] ├── auth/
+5. [ ] │   └── AuthContext.tsx
+6. [ ] ├── components/
+7. [ ] │   ├── PrivateLayout.tsx
+8. [ ] │   ├── PageHeader.tsx
+9. [ ] │   └── ...
+10. [ ] ├── pages/
+11. [ ] │   ├── Login.tsx
+12. [ ] │   ├── Register.tsx
+13. [ ] │   ├── Dashboard.tsx
+14. [ ] │   ├── CreateBooking.tsx
+15. [ ] │   ├── MyBookings.tsx
+16. [ ] │   └── AdminBookings.tsx
+17. [ ] ├── routes/
+18. [ ] │   ├── ProtectedRoute.tsx
+19. [ ] │   └── AdminRoute.tsx
+20. [ ] └── main.tsx
 
 ---
 
@@ -156,10 +156,10 @@ http://localhost:5173
 ---
 
 ## 🔗 Backend
-Το frontend συνδέεται με το Booking System API backend:
+Το frontend συνδέεται με το **Booking System API** backend:
 - Django REST Framework 
 - JWT authentication
-- Swagger documentation
+- Swagger/OpenAPI documentation
 
 ---
 
