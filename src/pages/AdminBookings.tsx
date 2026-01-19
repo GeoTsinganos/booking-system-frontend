@@ -352,7 +352,7 @@ export default function AdminBookings() {
                         <div
                             style={{
                                 display: "grid",
-                                gridTemplateColumns: "90px minmax(200px, 1.2fr) 140px 170px 150px 280px",
+                                gridTemplateColumns: "90px 1.2fr 140px 170px 150px 280px",
                                 padding: "12px 14px",
                                 background: "#fafafa",
                                 fontWeight: 800,
@@ -383,7 +383,7 @@ export default function AdminBookings() {
                                     key={b.id}
                                     style={{
                                         display: "grid",
-                                        gridTemplateColumns: "90px minmax(200px, 1.2fr) 140px 170px 150px 280px",
+                                        gridTemplateColumns: "90px 1.2fr 140px 170px 150px 280px",
                                         padding: "12px 14px",
                                         borderTop: "1px solid #f0f0f0",
                                         alignItems: "center",
