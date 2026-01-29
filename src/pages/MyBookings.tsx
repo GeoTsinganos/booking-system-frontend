@@ -148,7 +148,7 @@ export default function MyBookings() {
                                         }}
                                     >
                                         <div style={{ fontWeight: 800, color: "#111827" }}>
-                                            Booking #{b.id}
+                                            Booking
                                         </div>
 
                                         <span
