@@ -8,7 +8,19 @@ Frontend εφαρμογή για το **Booking System**, υλοποιημένη
 - role-based navigation,
 - και ασφαλή διαχείριση sessions.
 
-## 🚀 Λειτουργίες
+---
+
+## 🚀 Live Deployment (Railway)
+
+- **Live App:** https://booking-system-frontend-production.up.railway.app
+- **Backend API:** https://booking-system.up.railway.app
+- **Swagger (API Docs):** https://booking-system.up.railway.app/swagger/
+
+Το frontend είναι deployed στο Railway ως production build.
+
+---
+
+## ✨ Χαρακτηριστικά
 
 ### Αυθεντικοποίηση
 - Login με username & password
@@ -109,23 +121,30 @@ Frontend εφαρμογή για το **Booking System**, υλοποιημένη
 1. [ ] src/
 2. [ ] ├── api/
 3. [ ] │   └── axios.ts
-4. [ ] ├── auth/
-5. [ ] │   └── AuthContext.tsx
-6. [ ] ├── components/
-7. [ ] │   ├── PrivateLayout.tsx
-8. [ ] │   ├── PageHeader.tsx
-9. [ ] │   └── ...
-10. [ ] ├── pages/
-11. [ ] │   ├── Login.tsx
-12. [ ] │   ├── Register.tsx
-13. [ ] │   ├── Dashboard.tsx
-14. [ ] │   ├── CreateBooking.tsx
-15. [ ] │   ├── MyBookings.tsx
-16. [ ] │   └── AdminBookings.tsx
-17. [ ] ├── routes/
-18. [ ] │   ├── ProtectedRoute.tsx
-19. [ ] │   └── AdminRoute.tsx
-20. [ ] └── main.tsx
+4. [ ] ├── assets/
+5. [ ] │   └── react.svg
+6. [ ] ├── auth/
+7. [ ] │   ├── AdminRoute.tsx
+8. [ ] │   ├── ProtectedRoute.tsx
+9. [ ] │   └── AuthContext.tsx
+10. [ ] ├── components/
+11. [ ] │   ├── PrivateLayout.tsx
+12. [ ] │   ├── PageHeader.tsx
+13. [ ] │   └── Navbar.tsx
+14. [ ] ├── pages/
+15. [ ] │   ├── Login.tsx
+16. [ ] │   ├── Register.tsx
+17. [ ] │   ├── Dashboard.tsx
+18. [ ] │   ├── CreateBooking.tsx
+19. [ ] │   ├── MyBookings.tsx
+20. [ ] │   └── AdminBookings.tsx
+21. [ ] ├── ui/
+22. [ ] │   └── styles.ts
+23. [ ] ├── utils/
+24. [ ] │   └── date.ts
+25. [ ] ├── App.tsx
+26. [ ] ├── Index.css
+27. [ ] └── main.tsx
 
 ---
 
@@ -139,27 +158,57 @@ Frontend εφαρμογή για το **Booking System**, υλοποιημένη
 
 ---
 
+## 🔗 Επικοινωνία με Backend API
+
+Η εφαρμογή επικοινωνεί με το backend μέσω μεταβλητής περιβάλλοντος.
+
+### Environment Variable
+
+    VITE_API_BASE_URL=https://booking-system.up.railway.app
+
+Η μεταβλητή γίνεται inject στο build time και πρέπει να είναι σωστή για production.
+
+---
+
 ## ⚙️ Εγκατάσταση & Εκτέλεση
 1. Κλωνοποίησε το repository
 2. Εγκατάσταση dependencies:
     
        npm install
-3. Εκκίνηση development server: 
+
+3. Δημιούργησε αρχείο `.env`:
+
+       VITE_API_BASE_URL=http://127.0.0.1:8000
+
+4. Εκκίνηση development server: 
 
        npm run dev
-4. Άνοιξε:
 
-http://localhost:5173
+5. Άνοιξε:
+
+       http://localhost:5173
 
 ⚠️ Απαιτείται το backend API να τρέχει και να είναι σωστά ρυθμισμένο (CORS, base URL).
 
 ---
 
-## 🔗 Backend
-Το frontend συνδέεται με το **Booking System API** backend:
-- Django REST Framework 
-- JWT authentication
-- Swagger/OpenAPI documentation
+## 🏗️ Build για Production
+
+    npm run build
+
+Τα production αρχεία δημιουργούνται στον φάκελο `dist/`.
+
+Για local preview του production build:
+
+    npm run preview
+
+---
+
+## 🛠️ Σημειώσεις για Railway
+- Το frontend γίνεται build με npm run build
+- Το `dist/` σερβίρεται ως static application
+- Τα environment variables πρέπει να ορίζονται πριν το build
+- Αλλαγή στο `VITE_API_BASE_URL` απαιτεί redeploy
 
 ---
 
@@ -169,6 +218,7 @@ http://localhost:5173
 - σωστή διαχείριση κατάστασης & auth
 - ρεαλιστική εμπειρία χρήστη
 - production-ready UI
+- production deployment
 
 ---
 

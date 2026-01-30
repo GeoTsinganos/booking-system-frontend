@@ -10,7 +10,19 @@ This project focuses on:
 - role-based access,
 - and secure session handling.
 
-## 🚀 Features
+---
+
+## 🚀 Live Deployment (Railway)
+
+- **Live App:** https://booking-system-frontend-production.up.railway.app
+- **Backend API:** https://booking-system.up.railway.app
+- **Swagger (API Docs):** https://booking-system.up.railway.app/swagger/
+
+The frontend is deployed on Railway and served as a production build.
+
+---
+
+## ✨ Features
 
 ### Authentication
 - User login with username & password
@@ -111,23 +123,30 @@ This project focuses on:
 1. [ ] src/
 2. [ ] ├── api/
 3. [ ] │   └── axios.ts
-4. [ ] ├── auth/
-5. [ ] │   └── AuthContext.tsx
-6. [ ] ├── components/
-7. [ ] │   ├── PrivateLayout.tsx
-8. [ ] │   ├── PageHeader.tsx
-9. [ ] │   └── ...
-10. [ ] ├── pages/
-11. [ ] │   ├── Login.tsx
-12. [ ] │   ├── Register.tsx
-13. [ ] │   ├── Dashboard.tsx
-14. [ ] │   ├── CreateBooking.tsx
-15. [ ] │   ├── MyBookings.tsx
-16. [ ] │   └── AdminBookings.tsx
-17. [ ] ├── routes/
-18. [ ] │   ├── ProtectedRoute.tsx
-19. [ ] │   └── AdminRoute.tsx
-20. [ ] └── main.tsx
+4. [ ] ├── assets/
+5. [ ] │   └── react.svg
+6. [ ] ├── auth/
+7. [ ] │   ├── AdminRoute.tsx
+8. [ ] │   ├── ProtectedRoute.tsx
+9. [ ] │   └── AuthContext.tsx
+10. [ ] ├── components/
+11. [ ] │   ├── PrivateLayout.tsx
+12. [ ] │   ├── PageHeader.tsx
+13. [ ] │   └── Navbar.tsx
+14. [ ] ├── pages/
+15. [ ] │   ├── Login.tsx
+16. [ ] │   ├── Register.tsx
+17. [ ] │   ├── Dashboard.tsx
+18. [ ] │   ├── CreateBooking.tsx
+19. [ ] │   ├── MyBookings.tsx
+20. [ ] │   └── AdminBookings.tsx
+21. [ ] ├── ui/
+22. [ ] │   └── styles.ts
+23. [ ] ├── utils/
+24. [ ] │   └── date.ts
+25. [ ] ├── App.tsx
+26. [ ] ├── Index.css
+27. [ ] └── main.tsx
 ---
 
 ## 🔐 Security & Access Control
@@ -140,29 +159,59 @@ This project focuses on:
 
 ---
 
-## ⚙️ Setup & Run
+## 🔗 Backend API Integration
+
+The frontend communicates with the backend via a configurable base URL.
+
+### Environment Variable
+
+    VITE_API_BASE_URL=https://booking-system.up.railway.app
+
+This value is injected at build time and must be set correctly for production.
+___
+
+## ⚙️ Setup Instructions (Local Development)
+
 1. Clone the repository
 2. Install dependencies:
 
        npm install
-3. Start development server:
+3. Create a `.env` file:
+
+       VITE_API_BASE_URL=http://127.0.0.1:8000
+
+4. Start development server:
 
        npm run dev
-4. Open in browser:
 
-http://localhost:5173
+5. Open in browser:
+
+        http://localhost:5173
 
 ⚠️️ The backend API must be running and properly configured (CORS, base URL).
 
 ---
 
-## 🔗 Backend
-This frontend connects to the **Booking System API** backend:
-- Django REST Framework
-- JWT authentication
-- Swagger/OpenAPI documentation
+## 🏗️ Build for Production
+
+    npm run build
+
+The production-ready files will be generated in the `dist/` directory.
+
+To preview the production build locally:
+
+    npm run preview
 
 ---
+
+## 🛠️ Railway Notes
+- The frontend is built using npm run build
+- The production build is served using a static server
+- Environment variables must be defined before build
+- A redeploy is required after changing `VITE_API_BASE_URL`
+
+---
+
 
 ## 🎓 Author
 This frontend was developed as part of a complete **full-stack booking system**, demonstrating:
@@ -170,6 +219,7 @@ This frontend was developed as part of a complete **full-stack booking system**,
 - authentication & role-based routing
 - clean UI/UX practices
 - production-ready frontend logic
+- production deployment
 
 ---
 
